@@ -1,0 +1,38 @@
+{
+  "name": "startupchaser-functions",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": "20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "serve": "npm run build && firebase emulators:start --only functions,firestore,auth,storage",
+    "deploy": "npm run build && firebase deploy --only functions",
+    "lint": "eslint --ext .ts src",
+    "clean": "rimraf lib",
+    "dev": "tsc -w -p tsconfig.json"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "express": "^4.19.2",
+    "cors": "^2.8.5",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^5.0.1",
+    "zod": "^3.23.8",
+    "jsonwebtoken": "^9.0.2",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/cookie-parser": "^1.4.7",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/bcryptjs": "^2.4.6",
+    "eslint": "^9.7.0",
+    "@typescript-eslint/eslint-plugin": "^8.3.0",
+    "@typescript-eslint/parser": "^8.3.0",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.5.4"
+  }
+}
